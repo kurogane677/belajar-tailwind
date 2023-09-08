@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Learn Tailwind</title>
+    <style type="text/tailwindcss">
+      #toggle:checked ~ label div.toggle-circle {
+        @apply translate-x-3;
+      }
+    </style>
+  </head>
+  <body>
+    <hr class="my-20" />
+
+    <button
+      class="my-10 bg-sky-400 rounded-lg py-2 px-4 text-white font-semibold block mx-auto hover:bg-sky-500 active:bg-sky-600"
+    >
+      Button
+    </button>
+
+    <div class="flex justify-center">
+      <span>Light</span>
+      <input type="checkbox" name="toggle" id="toggle" class="hidden" />
+      <label for="toggle">
+        <div
+          class="w-9 h-5 bg-slate-400 p-1 rounded-full flex items-center cursor-pointer mx-1"
+        >
+          <div class="h-4 w-4 bg-slate-100 rounded-full toggle-circle"></div>
+        </div>
+      </label>
+      <span>Dark</span>
+    </div>
+
+    <div
+      class="cursor-pointer max-w-lg my-10 border-slate-200 rounded-xl mx-auto p-5 shadow-md hover:bg-sky-300 dark:hover:bg-slate-300 group"
+    >
+      <h5
+        class="group-hover:text-slate-50 font-semibold text-2xl cursor-pointer"
+      >
+        Title Card
+      </h5>
+      <p
+        class="text-sm text-slate-600 group-hover:text-slate-100 first-line:uppercase first-letter:text-5xl first-letter:float-left first-letter:mr-3"
+      >
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias
+        voluptate dolor eius fuga distinctio, ullam autem sequi consequuntur ab
+        nostrum, maxime ea iste officiis beatae. Error rerum exercitationem
+        illum dignissimos, earum esse delectus ipsam ad veniam repellendus velit
+        sunt dolores, vel, maiores consequuntur nam et architecto suscipit.
+        Ducimus, necessitatibus recusandae.
+      </p>
+    </div>
+
+    <div
+      class="max-w-lg border-slate-200 rounded-xl mx-auto shadow-md font-serif p-5"
+    >
+      <form action="">
+        <label for="email" class="block">
+          <span
+            class="block font-semibold mb-1 text-slate-700 font-sans text-lg"
+            >Email</span
+          >
+          <input
+            type="email"
+            id="email"
+            placeholder="Masukkan Email"
+            class="px-3 py-2 w-full shadow-md mb-1 placeholder:text-slate-300 placeholder:font-sans focus:outline-none focus:ring-1 focus:ring-sky-300 rounded-md invalid:text-pink-700 invalid:ring-pink-700 invalid:focus:ring-pink-700"
+          />
+        </label>
+      </form>
+    </div>
+    <hr class="my-20" />
+
+    <script>
+      const checkbox = document.querySelector("#toggle");
+      const html = document.querySelector("html");
+
+      checkbox.addEventListener("click", () => {
+        checkbox.checked
+          ? html.classList.add("dark")
+          : html.classList.remove("dark");
+      });
+    </script>
+  </body>
+</html>
