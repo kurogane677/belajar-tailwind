@@ -4,6 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+            },
+          },
+        },
+      };
+    </script>
     <title>Learn Tailwind</title>
     <style type="text/tailwindcss">
       #toggle:checked ~ label div.toggle-circle {
@@ -37,12 +49,12 @@
       class="cursor-pointer max-w-lg my-10 border-slate-200 rounded-xl mx-auto p-5 shadow-md hover:bg-sky-300 dark:hover:bg-slate-300 group"
     >
       <h5
-        class="group-hover:text-slate-50 font-semibold text-2xl cursor-pointer"
+        class="group-hover:text-slate-50 font-semibold text-2xl cursor-pointer group-hover:dark:text-slate-700"
       >
         Title Card
       </h5>
       <p
-        class="text-sm text-slate-600 group-hover:text-slate-100 first-line:uppercase first-letter:text-5xl first-letter:float-left first-letter:mr-3"
+        class="text-sm text-slate-600 group-hover:text-slate-100 first-line:uppercase first-letter:text-5xl first-letter:float-left first-letter:mr-3 group-hover:dark:text-slate-700"
       >
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias
         voluptate dolor eius fuga distinctio, ullam autem sequi consequuntur ab
@@ -59,15 +71,18 @@
       <form action="">
         <label for="email" class="block">
           <span
-            class="block font-semibold mb-1 text-slate-700 font-sans text-lg"
+            class="block font-semibold mb-1 text-slate-700 font-sans text-lg after:content-['*'] after:text-red-500 after:ml-0.5"
             >Email</span
           >
           <input
             type="email"
             id="email"
             placeholder="Masukkan Email"
-            class="px-3 py-2 w-full shadow-md mb-1 placeholder:text-slate-300 placeholder:font-sans focus:outline-none focus:ring-1 focus:ring-sky-300 rounded-md invalid:text-pink-700 invalid:ring-pink-700 invalid:focus:ring-pink-700"
+            class="peer px-3 py-2 w-full shadow-md mb-1 placeholder:text-slate-300 placeholder:font-sans focus:outline-none focus:ring-1 focus:ring-sky-300 rounded-md invalid:text-pink-700 invalid:ring-pink-700 invalid:focus:ring-pink-700"
           />
+          <p class="text-sm m-1 text-red-500 invisible peer-invalid:visible">
+            Email tidak valid
+          </p>
         </label>
       </form>
     </div>
@@ -77,11 +92,17 @@
       const checkbox = document.querySelector("#toggle");
       const html = document.querySelector("html");
 
-      checkbox.addEventListener("click", () => {
-        checkbox.checked
-          ? html.classList.add("dark")
-          : html.classList.remove("dark");
-      });
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme:dark)").matches)
+      ) {
+        checkbox.addEventListener("click", () => {
+          checkbox.checked
+            ? html.classList.add("dark")
+            : html.classList.remove("dark");
+        });
+      }
     </script>
   </body>
 </html>
