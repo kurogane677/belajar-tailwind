@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Learn Tailwind</title>
+  </head>
+  <body>
+    <hr class="my-20" />
+    <div class="container mx-auto">
+      <div class="border rounded-lg shadow-lg p-10 relative">
+        <div
+          class="w-10 h-10 rounded-full flex bg-sky-300 absolute -top-3 -right-5 cursor-pointer"
+          id="close"
+        >
+          <span class="text-2xl m-auto text-white">X</span>
+        </div>
+        <img
+          src="https://source.unsplash.com/1000x600?computer"
+          alt="Images"
+          width="200"
+          class="float-left mr-3"
+        />
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores at
+          ea assumenda consequatur fuga. Incidunt reprehenderit odio, adipisci
+          nisi ipsa tempore aut, corrupti similique magnam natus fugiat facilis
+          voluptas blanditiis.
+        </p>
+      </div>
+      <div class="container mx-auto rounded-lg mt-20 columns-3">
+        <img
+          src="https://source.unsplash.com/1000x600?computer"
+          alt="Images"
+          class="mb-4"
+        />
+        <img
+          src="https://source.unsplash.com/1000x600?computer"
+          alt="Images"
+          class="mb-4"
+        />
+        <img
+          src="https://source.unsplash.com/1000x600?computer"
+          alt="Images"
+          class="mb-4"
+        />
+        <img
+          src="https://source.unsplash.com/1000x600?computer"
+          alt="Images"
+          class="mb-4"
+        />
+        <img
+          src="https://source.unsplash.com/1000x600?computer"
+          alt="Images"
+          class="mb-4"
+        />
+        <img
+          src="https://source.unsplash.com/1000x600?computer"
+          alt="Images"
+          class="mb-4"
+        />
+      </div>
+    </div>
+    <hr class="my-20" />
+    <script>
+      const buttonClose = document.getElementById("close");
+
+      buttonClose.addEventListener("click", () => {
+        console.log("Test");
+      });
+    </script>
+  </body>
+</html>
